@@ -1,11 +1,35 @@
-Time-stamp: <Last updated: Zhao,Yafan zhaoyafan@mail.thu.edu.cn 2013-11-25 16:36:17>
+Time-stamp: <Last updated: Zhao,Yafan zhaoyafan@mail.thu.edu.cn 2013-11-25 22:18:36>
 TCCL-Code中各个目录中程序的（较为）详细的介绍：
 1. ADF
+ADFDFTB2mov.py : 读取ADF程序利用DFTB方法进行几何优化计算时的输出文件，从中获得几何优化过程中每一步的坐标以及能量，并将其以XYZ格式输出。
+ADFDFTB2xyz.py : 读取ADF程序利用DFTB方法进行几何优化计算时的输出文件，从中获得几何优化过程最后一步的坐标以及能量，并将其以XYZ格式输出。
+adflog2xyz.pl : 读取ADF程序使用DFT方法进行几何优化的logfile文件，从中获取几何优化最后一步的坐标及能量，并将结果以XYZ格式输出。
 2. CP2K
+cp2kdimerfe.py : 读取CP2K程序使用Dimer方法进行过渡态优化过程中的输出文件，从中获取每一步优化时的结构能量以及原子的最大受力，输出到fe.dat文件。
+cp2kfreq2mov.pl : 读取使用CP2K程序进行频率计算的输出文件，从中读取各个振动频率对应的的振动模式，结合频率计算的几何坐标，根据各个振动模式生成该模式对应的动画，以XYZ格式输出。
+cp2klog2xyz.pl： 读取CP2K程序进行几何优化所产生的pos-1.xyz文件，并获取最后一步的几何坐标以及能量。
+cp2knebforces.pl：读取CP2K程序利用NEB方法进行过渡态优化过程中的输出文件，获取每一步计算中受力最大的原子以及其受力。 
+elpot_plot.pl ： 读取CP2K程序计算hartree potential产生的cube文件，计算hatree potential在Z方向上的均值。
+cp2kdimerlog2xyz.pl：读取CP2K程序利用dimer方法进行过渡态搜索过程中产生的pos-1.xyz文件，并从cp2kdimerfe.py程序所生成的fe.dat文件中读取过渡态对应的绝对能量。
+cp2kfreq.pl：读取CP2K程序进行频率分析的输出文件，获得频率列表，并标记其是否为虚频,结果将保存在freq.dat文件中。
+GetCP2KDimerVector.py：读取CP2K程序使用Dimer方法进行过渡态搜索所产生的restart文件，从中读取Dimer计算所对应的DimerVector，以类似VASP程序中MODECAR的格式输出。
 3. DMol3
+dmolcar2xyz.pl: 读取Material Studio程序产生的.car文件，并将其转化为xyz文件。
+dmolcar2xyz.py: 读取Material Studio程序产生的.car文件，并将其转化为xyz文件。若添加-s 参数，则将所有原子按照元素种类以及其在Z方向上的大小进行排序输出。
+dmollog2xyz.pl：读取dmol3程序进行几何优化计算产生的输出文件，获得最后一步优化的几何结构坐标以及能量。
+xyz2arc.pl：将xyz文件转化为Material Studio程序可以读取的.arc文件。若xyz文件是包含多组坐标的轨迹文件，则产生的.arc文件可以在Material Studio程序中生成动画。若当前目录下存在POSCAR或者CONTCAR文件，则从POSCAR或者CONTCAR文件中读取周期性边界条件，生成有周期性边界条件的.arc文件。
+xyz2dmolcar.pl ： 将xyz文件转化为dmol程序需要的.car文件。
 4. Gaussian
+g03log2xyz.pl : 读取Gaussian程序进行几何优化过程中产生的输出文件，并从中读取最后一步几何优化的结构以及能量，以XYZ格式输出。
 5. Molpro
+OrbPrint++_1.1.pl : 读取使用Molpro进行计算所产生的轨道信息，并将轨道的组成以友好的方式进行输出。支持open-shell, Closed-Shall, Natural Orbitals等多种类型。
 6. NWChem
+nwlog2xyz.pl :读取使用NWChem程序进行几何优化计算所产生的输出文件，从中读取最后一步几何优化的结构以及能量，以XYZ格式输出。
 7. VASP
+vasp2xyz.pl: 利用vtsts scripts中的脚本将VASP进行几何优化过程中产生的CONTCAR文件转化为xyz文件，并从OUTCAR文件中读取几何优化对应的能量，以XYZ格式输出。
 8. TwoElectronHF
+HFCalc.f90: 一个使用sto-3G 基组进行双电子Hartree-Fock计算的简单程序，可以计算H2，HeH+ 的能量。程序使用Fortran语言编写。程序框架基本参照 Szabo, A和Ostlund N S 所著 Modern Quantum Chemistry: Introduction to advanced Electronic Structure Theory。
 9. Misc
+freq2zpe.pl : 从freq.dat文件中读取频率计算所产生的所有频率，并根据这些频率计算出零点能。
+xyz2neb.pl：从给定的反应物结构、产物结构以及image的数目，利用线性差值来产生用于NEB计算的中间结构。所有结构均使用xyz格式。
+xyzshrink.py： 每隔一定间隔来读取分子动力学计算过程中产生的轨迹文件中的几何结构，以有效减少轨迹文件的大小。
