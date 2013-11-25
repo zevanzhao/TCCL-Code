@@ -1,0 +1,3 @@
+This repo is created to share all the code about theoretical and computational chemistry developed by the author when working in Prof. Jun Li research group at Department of Chemistry, Tsinghua University, China.
+The code are developed to help with the input or output of some popular computational chemistry software such as Gaussian, ADF, Molpro, NWChem, CP2K, VASP and Dmol3. 
+Most of the code are develped using Perl or Python, so as to be easily portable.
