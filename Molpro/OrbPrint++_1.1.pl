@@ -1,7 +1,7 @@
 #!/usr/bin/perl 
 #eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q' if 0;
 #;-*- Perl -*-
-#Time-stamp: <Last updated: Zhao,Yafan zhaoyafan@mail.thu.edu.cn 2013-11-25 17:13:42>
+#Time-stamp: <Last updated: Zhao,Yafan zhaoyafan@mail.thu.edu.cn 2013-11-25 20:00:40>
 #Version=1.1
 #This script was written to print orbital information in the molpro output files in a human-readable way.
 #Usage: Orbprint++_1.0  YOUR_MOLPRO_OUTFILE.out
@@ -199,7 +199,7 @@ sub PrintOpenOrbs{
                 print OUT "$names[$j]  $sortedorbs[$i][1][$j]      ";
             }
             print OUT "\n";
-            for($j=@names-1;$j<=@${$sortedorbs[$i][1]};$j++){
+            for($j=@names-1;$j<=$#{$sortedorbs[$i][1]};$j++){
                 if(abs($sortedorbs[$i][1][$j])>$threshold){
                     printf OUT "    %s\t%10.2f\n",$sortedorbs[$i][0][$j+1-@names],$sortedorbs[$i][1][$j];
                 }
