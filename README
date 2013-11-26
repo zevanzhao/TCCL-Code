@@ -25,7 +25,7 @@ xyz2dmolcar.pl ：Convert a single XYZ file to the .car file for dmol3 program.
 4. Gaussian
 g03log2xyz.pl : Read the output file of geometry optimization calculation by Gaussian proram, extract the last geometry and its energy, export it in XYZ format.
 5. Molpro
-OrbPrint++_1.1.pl : 支持open-shell, Closed-Shall, Natural Orbitals等多种类型。Read the orbital composition of Molpro calculation ane output the orbital composition in a more friendly way. Open-Shell, Closed Shell calculation ans Natural orbitals are supported.
+OrbPrint++_1.1.pl : Read the orbital composition of Molpro calculation ane output the orbital composition in a more friendly way. Open-Shell, Closed Shell calculation ans Natural orbitals are supported.
 6. NWChem
 nwlog2xyz.pl : Read the output file of geometry optimization calculation by NWChem program, extract the energy and coordinates of the last step, export the result in XYZ format.
 7. VASP
