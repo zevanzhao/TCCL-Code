@@ -1,4 +1,4 @@
-Time-stamp: <Last updated: Zhao,Yafan zhaoyafan@mail.thu.edu.cn 2013-11-25 22:18:36>
+Time-stamp: <Last updated: Zhao,Yafan zhaoyafan@mail.thu.edu.cn 2013-11-26 09:38:23>
 TCCL-Code中各个目录中程序的（较为）详细的介绍：
 1. ADF
 ADFDFTB2mov.py : 读取ADF程序利用DFTB方法进行几何优化计算时的输出文件，从中获得几何优化过程中每一步的坐标以及能量，并将其以XYZ格式输出。
@@ -7,7 +7,7 @@ adflog2xyz.pl : 读取ADF程序使用DFT方法进行几何优化的logfile文件
 2. CP2K
 cp2kdimerfe.py : 读取CP2K程序使用Dimer方法进行过渡态优化过程中的输出文件，从中获取每一步优化时的结构能量以及原子的最大受力，输出到fe.dat文件。
 cp2kfreq2mov.pl : 读取使用CP2K程序进行频率计算的输出文件，从中读取各个振动频率对应的的振动模式，结合频率计算的几何坐标，根据各个振动模式生成该模式对应的动画，以XYZ格式输出。
-cp2klog2xyz.pl： 读取CP2K程序进行几何优化所产生的pos-1.xyz文件，并获取最后一步的几何坐标以及能量。
+cp2klog2xyz.pl： 读取CP2K程序进行几何优化所产生的pos-1.xyz文件，并获取最后一步的几何坐标以及能量，以XYZ格式输出。
 cp2knebforces.pl：读取CP2K程序利用NEB方法进行过渡态优化过程中的输出文件，获取每一步计算中受力最大的原子以及其受力。 
 elpot_plot.pl ： 读取CP2K程序计算hartree potential产生的cube文件，计算hatree potential在Z方向上的均值。
 cp2kdimerlog2xyz.pl：读取CP2K程序利用dimer方法进行过渡态搜索过程中产生的pos-1.xyz文件，并从cp2kdimerfe.py程序所生成的fe.dat文件中读取过渡态对应的绝对能量。
