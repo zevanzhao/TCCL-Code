@@ -1,4 +1,4 @@
-Time-stamp: <Last updated: Zhao,Yafan zhaoyafan@mail.thu.edu.cn 2013-11-26 14:20:01>
+Time-stamp: <Last updated: Zhao,Yafan zhaoyafan@mail.thu.edu.cn 2013-11-26 18:38:25>
 This is a more detailed description of all scripts in each subdirectory of the TCCL-Code.
 1. ADF
 ADFDFTB2mov.py : Read the output of geometry optimization calculation with DFTB method in ADF, extract the cartesian coordinates and energy of each optimization step, output the optimization trajectory in XYZ format.
@@ -28,7 +28,7 @@ nwlog2xyz.pl : Read the output file of geometry optimization calculation by NWCh
 7. VASP
 vasp2xyz.pl: Using the vtsts scripts to convert the CONTCAR file to XYZ file and extract the cooresponding energy from the OUTCAR file. Put the energy in the second line of the XYZ file.
 8. TwoElectronHF
-HFCalc.f90: A simple two-electron Hartree-Fock program using sto-3G basis set. The program can calculate the ground state energy of H2 or HeH+. The program is written in Fortran 90. The framework of the program is based on the appendix in the book  Modern Quantum Chemistry: Introduction to advanced Electronic Structure Theorywritten by Szabo, A and Ostlund N S. 
+HFCalc.f90: A simple two-electron Hartree-Fock program using sto-3G basis set. The program can calculate the ground state energy of H2 or HeH+. The program is written in Fortran 90. The framework of the program is based on the appendix in the book  Modern Quantum Chemistry: Introduction to advanced Electronic Structure Theory written by Szabo, A and Ostlund N S. 
 9. Misc
 freq2zpe.pl : Read all the vibrational frequencies from freq.dat file and calculate the vibrational Zero Point Energy.
 xyz2neb.pl：Given the XYZ coordinates of the initial state, final states and the number of replicas, generate the images for NEB calculation using a linsear interpolation method. The coordinates of the replicas will be exported as XYZ files.
