@@ -14,6 +14,7 @@ stepnum = 0
 maxforce = 0.00
 tmpenery = 0
 i = 0
+converge = 0 
 outlines += "Step\tEnergy(a.u.)\tMax.Gradient\n"
 while (i < len(lines)):
     if ( re.search(r"ENERGY| Total FORCE_EVAL",lines[i])):
@@ -32,8 +33,20 @@ while (i < len(lines)):
             if (re.search(r"---------------------------------------------------", lines[i])):
                 break
         if (maxforce > 0.00):
-            outlines += "%d\t%12.6f\t%E\n" %(stepnum, energy,maxforce)
+            outlines += "%d\t%12.8f\t%E\n" %(stepnum, energy,maxforce)
         else:
-            outlines += "%d\t%12.6f\n" %(stepnum, energy)           
+            outlines += "%d\t%12.8f\n" %(stepnum, energy)
+    elif (re.search(ur"GEOMETRY OPTIMIZATION COMPLETED", lines[i])):
+        stepnum += 1
+        converge = 1 
+        while (i < len(lines)) :
+            if ( re.search(r"ENERGY| Total FORCE_EVAL",lines[i])):
+                m = re.search(r"([+\-]?\d+\.\d+)", lines[i])
+                #debug 
+                #print "%s" % (m.group(1))
+                energy = float(m.group(1))
+            i += 1
     i += 1
+if ( 1 == converge):
+    outlines += "%d\t%12.8f\n" % (stepnum, energy)
 Outp.writelines(outlines)
